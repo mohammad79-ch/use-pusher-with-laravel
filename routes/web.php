@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Frontend\Post\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,3 +26,5 @@ Route::get('images',\App\Http\Livewire\Image::class);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource("posts", PostController::class);
