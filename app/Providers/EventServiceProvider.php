@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Events\ceratedPostEvent;
+use App\Listeners\BroadcastCreatedPostListener;
 use App\Listeners\BroadcastUserLoginNotification;
 use App\Listeners\BroadcastUserLogoutNotification;
 use Illuminate\Auth\Events\Login;
@@ -27,7 +29,10 @@ class EventServiceProvider extends ServiceProvider
         ],
         Logout::class => [
             BroadcastUserLogoutNotification::class
-        ]
+        ],
+//        ceratedPostEvent::class => [
+//            BroadcastCreatedPostListener::class
+//        ]
     ];
 
     /**
