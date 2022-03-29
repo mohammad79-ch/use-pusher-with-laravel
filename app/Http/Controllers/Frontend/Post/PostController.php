@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend\Post;
 
+use App\Events\ceratedPostEvent;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Services\ImageService;
@@ -10,6 +11,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -66,7 +68,10 @@ class PostController extends Controller
           $validData["status"] = TRUE;
       }
 
-      auth()->user()->posts()->create($validData);
+      $post =  auth()->user()->posts()->create($validData);
+
+
+     broadcast(new ceratedPostEvent($post));
 
       return redirect()->route("posts.index");
 

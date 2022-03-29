@@ -28,3 +28,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource("posts", PostController::class);
+
+Route::view("users","users.showAll")->name("users.all");

@@ -9,12 +9,13 @@
 
                     <div class="card-body">
                      @foreach($posts as $post)
-                            <img src="{{asset('assets/posts/'.$post->file)}}" width="90%" height="250" alt="">
-                            <div class="d-flex">
-                                <p class="font-weight-bold" style="margin-right: 10px;font-weight: bold">{{$post->title}}</p>
-                                <p class="text-danger" style="margin-right: 10px;font-weight: bold">{{$post->user->name}}</p>
-                            </div>
-                            <p>{{$post->content}}</p>
+                         <div id="box_posts">
+                             <img src="{{asset('assets/posts/'.$post->file)}}" width="90%" height="250" alt="">
+                             <div class="d-flex">
+                                 <p class="font-weight-bold" style="margin-right: 10px;font-weight: bold">{{$post->title}}</p>
+                             </div>
+                             <p>{{$post->content}}</p>
+                         </div>
                      @endforeach
                     </div>
                 </div>
